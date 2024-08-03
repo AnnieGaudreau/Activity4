@@ -9,7 +9,7 @@ Original file is located at
 
 import streamlit as st
 import pandas as pd
-import seaborn as sns
+import matplotlib.pyplot as plt
 
 st.title('Diabetes Data')
 df = pd.read_csv('https://storage.googleapis.com/scsu-data-science/diabetes_nan.csv')
@@ -28,8 +28,8 @@ if origin == 'Diabetic':
 else:
     df = df.loc[df['Outcome']=='0']
 
-fig = sns.figure()
+fig = plt.figure()
 ax = fig.add_subplot()
 ax.set_xlabel('Frequency')
 ax.hist(df['Frequency'])
-st.sns(fig)
+st.pyplot(fig)
