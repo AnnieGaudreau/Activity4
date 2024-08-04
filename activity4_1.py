@@ -23,13 +23,15 @@ st.subheader('Diabetic vs Non-DDiabetic')
 
 outcome = st.radio('Select outcome', ('Diabetic', 'Non-Diabetic'))
 
-if origin == 'Diabetic':
-    df = df.loc[df['Outcome']=='1']
+if outcome == 'Diabetic':
+    filtered_df = df.loc[df['Outcome']=='1']
 else:
-    df = df.loc[df['Outcome']=='0']
+    filtered_df = df.loc[df['Outcome']=='0']
 
-fig = plt.figure()
-ax = fig.add_subplot()
-ax.set_xlabel('Frequency')
-ax.hist(df['Outcome'])
+fig, ax = plt.subplots()
+ax.hist(filtered_df['Outcome'], bins=2, alpha=0.7, color='p'
+ax.set_title(f'Histogram of Patients')
+ax.set_xlabel('Outcome')
+ax.set_ylabel('Frequency')
+
 st.pyplot(fig)
