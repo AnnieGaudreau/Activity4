@@ -10,7 +10,6 @@ Original file is located at
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 st.title('Diabetes Data')
 df = pd.read_csv('https://storage.googleapis.com/scsu-data-science/diabetes_nan.csv')
@@ -32,5 +31,5 @@ else:
 fig = plt.figure()
 ax = fig.add_subplot()
 ax.set_xlabel('Frequency')
-ax.hist(df['Frequency'])
+ax.hist(df['Outcome'])
 st.pyplot(fig)
